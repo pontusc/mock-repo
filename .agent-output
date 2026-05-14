@@ -6,3 +6,5 @@ timestamp: 2026-05-14T10:43:14Z
 hello from opencode agent for issue #18
 
 issue #20: added opencode-agent-check.txt and appended summary
+
+issue #22: added agent-log-capture-test.txt with the requested log capture line
