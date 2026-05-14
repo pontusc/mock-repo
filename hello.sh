@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
 
-frames=(
-$'   .-.\n  (o o)\n   |O|   hello from opencode\n   | |\''
-$'   .-.\n  (o o)\n  /|O|\\  hello from opencode\n   / \134'
-$'   .-.\n  (o o)\n   \\|O|/ hello from opencode\n   / \134'
-)
+frame=$'   .-.
+  (o o)
+   |O|  [ hello from opencode ]
+   | |'
 
 colors=(
   $'\033[31m'
@@ -24,8 +23,8 @@ trap 'cleanup; exit 130' INT TERM
 printf '\033[?25l'
 
 while :; do
-  for i in "${!frames[@]}"; do
-    printf '\033[H\033[J%s%b\033[0m\n' "${colors[$i]}" "${frames[$i]}"
+  for color in "${colors[@]}"; do
+    printf '\033[H\033[J%b%s\033[0m\n' "$color" "$frame"
     sleep 0.2
   done
 done
