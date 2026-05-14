@@ -8,3 +8,5 @@ hello from opencode agent for issue #18
 issue #20: added opencode-agent-check.txt and appended summary
 
 issue #22: added agent-log-capture-test.txt with the requested log capture line
+
+issue #24: added cm-readability-test.txt with the requested readable logs line
