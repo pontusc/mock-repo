@@ -12,3 +12,4 @@ issue #22: added agent-log-capture-test.txt with the requested log capture line
 issue #24: added cm-readability-test.txt with the requested readable logs line
 
 issue #26: deleted the testfiles and added hello.sh with ASCII art output
+issue #28: removed all repo files except hello.sh and recorded this summary
