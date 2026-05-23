@@ -1,15 +1,9 @@
 #!/usr/bin/env bash
 
-frame=$'   .-.
-  (o o)
-   |O|  [ hello from opencode ]
-   | |'
-
-colors=(
-  $'\033[31m'
-  $'\033[33m'
-  $'\033[32m'
-)
+train=$'      ====        ________
+  _D _|  |_______/        \\
+   \\-___________/  o  o  o  \\
+    (o)    (o)    (o)    (o)'
 
 cleanup() {
   [[ ${cleaned_up:-0} -eq 1 ]] && return
@@ -22,9 +16,13 @@ trap 'cleanup; exit 130' INT TERM
 
 printf '\033[?25l'
 
+cols=$(tput cols 2>/dev/null || printf '80')
+train_width=32
+max_offset=$((cols > train_width ? cols - train_width : 0))
+
 while :; do
-  for color in "${colors[@]}"; do
-    printf '\033[H\033[J%b%s\033[0m\n' "$color" "$frame"
-    sleep 0.2
+  for ((offset = 0; offset <= max_offset; offset++)); do
+    printf '\033[H\033[J%*s%b\n' "$offset" '' "$train"
+    sleep 0.05
   done
 done
